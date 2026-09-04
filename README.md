@@ -2,14 +2,14 @@
 
 通过共绩算力（[suanli.cn](https://suanli.cn)）Open API 管理弹性部署、Job 批处理、裸金属、集群存储与镜像预热。
 
-[![skills.sh](https://skills.sh/b/<owner>/<repo>)](https://skills.sh/<owner>/<repo>)
+[![skills.sh](https://skills.sh/b/suanleme/gongji-skills)](https://skills.sh/suanleme/gongji-skills)
 
-将 `<owner>/<repo>` 换成本仓库的 GitHub 地址（例如 `acme/gj-skills`）。
+线上仓库：[github.com/suanleme/gongji-skills](https://github.com/suanleme/gongji-skills)
 
 ## 安装
 
 ```bash
-npx skills add <owner>/<repo>
+npx skills add suanleme/gongji-skills
 ```
 
 CLI 会把 skill 装到当前 Agent 对应目录。Cursor 项目级默认 `.agents/skills/`，全局为 `~/.cursor/skills/`。
@@ -18,16 +18,16 @@ CLI 会把 skill 装到当前 Agent 对应目录。Cursor 项目级默认 `.agen
 
 ```bash
 # 列出仓库内 skill，不安装
-npx skills add <owner>/<repo> --list
+npx skills add suanleme/gongji-skills --list
 
 # 只装某一个
-npx skills add <owner>/<repo> --skill suanli-deployment
+npx skills add suanleme/gongji-skills --skill suanli-deployment
 
 # 全局安装（跨项目可用）
-npx skills add <owner>/<repo> -g
+npx skills add suanleme/gongji-skills -g
 
 # 装全部 skill 到已检测到的 Agent
-npx skills add <owner>/<repo> --all
+npx skills add suanleme/gongji-skills --all
 ```
 
 本地开发可直接指向本目录：

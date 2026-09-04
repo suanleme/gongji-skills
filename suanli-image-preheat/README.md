@@ -7,7 +7,7 @@ Agent Skill 入口：[SKILL.md](./SKILL.md)
 ## 安装
 
 ```bash
-npx skills add <owner>/<repo> --skill suanli-image-preheat
+npx skills add suanleme/gongji-skills --skill suanli-image-preheat
 ```
 
 装全部、全局（`-g`）、列出仓库内 skill（`--list`）见仓库根 [README.md](../README.md)。Cursor 项目级默认 `.agents/skills/suanli-image-preheat/`，全局 `~/.cursor/skills/suanli-image-preheat/`。
