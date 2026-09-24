@@ -85,7 +85,7 @@ Content-Type: application/json
 | 开启自动续费 | POST | `/output/v2/auto_renew_device_config/set_auto_renew_config` | [api/auto-renew.md](api/auto-renew.md) |
 | 取消自动续费 | POST | `/output/v2/auto_renew_device_config/delete_auto_renew_config` | [api/cancel-auto-renew.md](api/cancel-auto-renew.md) |
 
-完整字段见 [`api/`](api/)；**仅在构造复杂 body 时读取**，勿整篇加载。
+完整字段优先实时查 Apifox 官方文档：`python scripts/apidoc.py get <路径|短名>`（如 `get /output/v2/device_order/buy_v2` 或 `get order-create`，也可 `search "关键词"` / `list`）；**仅在构造复杂 body 时查询**，勿整篇加载。网络不可用时回退读 [`api/`](api/) 下的静态文档。
 
 ## 状态枚举
 
@@ -248,4 +248,13 @@ export SUANLI_TOKEN="<密钥>"
   '{"device_id":250,"billing_type":"Hour","use_discount":true}'
 ./scripts/call.sh POST /output/v2/auto_renew_device_config/delete_auto_renew_config \
   '{"device_id":250}'
+```
+
+### 查接口文档（Apifox 实时）
+
+```bash
+python scripts/apidoc.py list                    # 本 skill 全部端点
+python scripts/apidoc.py search "订单"            # 按关键词搜端点
+python scripts/apidoc.py get /output/v2/device_order/buy_v2   # 完整文档（实时渲染）
+python scripts/apidoc.py get order-create        # 短名 = api/*.md 文件名
 ```

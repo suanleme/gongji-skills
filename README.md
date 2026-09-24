@@ -56,6 +56,19 @@ cp .env.example .env
 
 必填 `SUANLI_TOKEN`（平台右上角头像 → **API 密钥**，推荐简易模式）。可选 `SUANLI_BASE_URL`、`SUANLI_RSA_PRIVATE_KEY`。`suanli-nas-storage` 在 S3 创建 / 重试 / 校验时还需要 `SUANLI_PLATFORM_PUBLIC_KEY`。
 
+## 接口文档：Apifox 实时查询
+
+各 skill 的 `api/` 目录是接口文档的**静态快照**（离线回退用）。要拿**最新**接口定义，用各 skill 自带的 `scripts/apidoc.py`（仅 Python 标准库，无第三方依赖）直接读 Apifox 官方分享文档：
+
+```bash
+python scripts/apidoc.py list                 # 本 skill 全部端点
+python scripts/apidoc.py search "关键词"       # 搜索端点
+python scripts/apidoc.py get /task/job/create # 完整文档（实时渲染，含参数/请求体/响应）
+python scripts/apidoc.py get job-create       # 短名 = api/*.md 文件名
+```
+
+共绩在 Apifox 上更新接口后，skill 无需发版，Agent 每次查询拿到的都是最新定义；网络不可用时自动提示回退读 `api/` 静态文档。
+
 ## 更新
 
 ```bash

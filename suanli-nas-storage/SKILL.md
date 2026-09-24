@@ -88,7 +88,7 @@ description: >-
 | 停止任务 | POST | `/storage/nas/v1/s3/stop` | 否 |
 | 校验连接 | POST | `/storage/nas/v1/encrypt/s3/check` | **是** |
 
-完整字段见 [`api/`](api/)；**仅在构造复杂 body 时读取**，勿整篇加载。
+完整字段优先实时查 Apifox 官方文档：`python scripts/apidoc.py get <路径|短名>`（如 `get /storage/nas/v1/create` 或 `get nas-create`，也可 `search "关键词"` / `list`）；**仅在构造复杂 body 时查询**，勿整篇加载。网络不可用时回退读 [`api/`](api/) 下的静态文档。
 
 ## 状态枚举
 
@@ -407,4 +407,13 @@ export SUANLI_PLATFORM_PUBLIC_KEY="<平台公钥 PEM>"
 python3 scripts/call_encrypt.py POST /storage/nas/v1/encrypt/s3/check @check.json
 python3 scripts/call_encrypt.py POST /storage/nas/v1/encrypt/s3/create @payload.json
 python3 scripts/call_encrypt.py POST /storage/nas/v1/encrypt/s3/retry @retry.json
+```
+
+### 查接口文档（Apifox 实时）
+
+```bash
+python scripts/apidoc.py list                    # 本 skill 全部端点
+python scripts/apidoc.py search "扩容"            # 按关键词搜端点
+python scripts/apidoc.py get /storage/nas/v1/create   # 完整文档（实时渲染）
+python scripts/apidoc.py get nas-create          # 短名 = api/*.md 文件名
 ```

@@ -81,7 +81,7 @@ Content-Type: application/json   # POST 时
 | 设备资源 | GET | `/deployment/resource/search` |
 | 对象存储 | GET | `/storage/get_storage` |
 
-完整字段见 [`api/`](api/) 下对应文档；**仅在构造复杂 body 时读取**，勿整篇加载。
+完整字段优先实时查 Apifox 官方文档：`python scripts/apidoc.py get <路径|短名>`（如 `get /task/job/create` 或 `get job-create`，也可 `search "关键词"` / `list`）；**仅在构造复杂 body 时查询**，勿整篇加载。网络不可用时回退读 [`api/`](api/) 下的静态文档。
 
 ## 工作流
 
@@ -225,4 +225,13 @@ export SUANLI_TOKEN="<密钥>"
 # POST
 ./scripts/call.sh POST /task/job/stop '{"task_id":123}'
 ./scripts/call.sh POST /task/job/create @payload.json   # @ 文件为 body
+```
+
+### 查接口文档（Apifox 实时）
+
+```bash
+python scripts/apidoc.py list                    # 本 skill 全部端点
+python scripts/apidoc.py search "计费"            # 按关键词搜端点
+python scripts/apidoc.py get /task/job/create    # 完整文档（实时渲染）
+python scripts/apidoc.py get job-create          # 短名 = api/*.md 文件名
 ```
